@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercici validacions</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <div id="divRegistre">
+        <form action="" id="frmRegistre">
+            <h1>Formulari de registre</h1>
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" class="form-control" id="nom" name="nom">
+                <div class="mt-1 error" id="errNom"></div>
+            </div>
+            <div class="form-group">
+                <label for="cognoms">Cognoms</label>
+                <input type="text" class="form-control" id="cognoms" name="cognoms">
+                <div class="mt-1 error" id="errCognoms"></div>
+            </div>
+            <div class="form-group">
+                <label for="provincia">Provincia</label>
+                <select class="form-control" name="provincia" id="provincia">
+                    <option value="">-- Seleccioni provincia --</option>
+                    <option value="Barcelona">Barcelona</option>
+                    <option value="Girona">Girona</option>
+                    <option value="Lleida">Lleida</option>
+                    <option value="Tarragona">Tarragona</option>
+                    <option value="altra">Altres provincies</option>
+                </select>
+                <div class="mt-1 error" id="errProvincia"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="text" class="form-control" id="email" name="email">
+                <div class="mt-1 error" id="errEmail"></div>
+            </div>
+            <div class="form-group">
+                <label for="pass">Contrasenya</label>
+                <input type="password" class="form-control" id="pass" name="pass">
+                <div class="mt-1 error" id="errPass"></div>
+            </div>
+            <div class="form-group">
+                <label for="passc">Confirmació contrasenya</label>
+                <input type="password" class="form-control" id="passc" name="passc">
+                <div class="mt-1 error" id="errPassc"></div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="reset" class="btn btn-secondary" id="cancel">Cancel·la</button>
+                <input type="submit" class="btn btn-primary" value="Envia">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
