@@ -1,3 +1,4 @@
+var formValid;
 var errorMessage = new Map;
 errorMessage.set("err_obligatori", "Aquest camp és obligatori");
 errorMessage.set("err_provincia", "Seleccioni una provincia");
@@ -18,51 +19,37 @@ $(document).ready(function() {
 });
 
 function validacioFormulari() {
-    let formValid = true;
     let nom = $("#nom").val().trim();
     let cognoms = $("#cognoms").val().trim();
     let provincia = $("#provincia").val();
     let email = $("#email").val().trim();
     let pass= $("#pass").val();
     let passc= $("#passc").val();
+    formValid = true;
 
     if (nom == "") {
-        $("#nom").addClass("is-invalid");
-        $("#errNom").text(errorMessage.get("err_obligatori"));
-        formValid = false;
+        notificaError("nom", "errNom", errorMessage.get("err_obligatori"));
     }
 
     if (cognoms == "") {
-        $("#cognoms").addClass("is-invalid");
-        $("#errCognoms").text(errorMessage.get("err_obligatori"));
-        formValid = false;
+        notificaError("cognoms", "errCognoms", errorMessage.get("err_obligatori"));
     }
 
     if (provincia == "") {
-        $("#provincia").addClass("is-invalid");
-        $("#errProvincia").text(errorMessage.get("err_provincia"));
-        formValid = false;
+        notificaError("provincia", "errProvincia", errorMessage.get("err_provincia"));
     }
 
-    if(email == "") {
-        $("#email").addClass("is-invalid");
-        $("#errEmail").text(errorMessage.get("err_obligatori"));
-        formValid = false;
+    if(email == "") {;
+        notificaError("email", "errEmail", errorMessage.get("err_obligatori"));
     } else if(validaEmail(email) == false) {
-        $("#email").addClass("is-invalid");
-        $("#errEmail").text(errorMessage.get("err_email"));
-        formValid = false;
+        notificaError("email", "errEmail", errorMessage.get("err_email"));
     }
 
     if (pass == "") {
-        $("#pass").addClass("is-invalid");
-        $("#errPass").text(errorMessage.get("err_obligatori"));
-        formValid = false;
+        notificaError("pass", "errPass", errorMessage.get("err_obligatori"));
     } else if (pass != passc) {
         $("#pass").addClass("is-invalid");
-        $("#passc").addClass("is-invalid");
-        $("#errPassc").text(errorMessage.get("err_confirmacio"));
-        formValid = false;
+        notificaError("passc", "errPassc", errorMessage.get("err_confirmacio"));
     }
 
     return formValid;
@@ -75,6 +62,12 @@ function validaEmail(email) {
     } else {
         return true;
     }
+}
+
+function notificaError(idInput, idError, missatge) {
+    $("#" + idInput).addClass("is-invalid");
+    $("#" + idError).text(missatge);
+    formValid = false;
 }
 
 function neteja() {
